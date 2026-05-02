@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import { useRef } from 'react';
 import './App.css';
-
 function App() {
+  const headerRef = useRef();
+  const inputRef = useRef();
+  const text = 'Text';
+  const handleFocus = () => {
+    headerRef.current.focus();
+    inputRef.current.focus();
+
+    console.log(inputRef.current.value);
+  };
+  console.log(headerRef.current);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header" ref={headerRef}>
+        <input ref={inputRef} />
+        <p>{text}</p>
+        <button onClick={handleFocus}>focus me</button>
       </header>
     </div>
   );
