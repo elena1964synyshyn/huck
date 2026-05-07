@@ -12,8 +12,8 @@
 //   };
 //   console.log(headerRef.current);
 //   return (
-//     <div className="App">
-//       <header className="App-header">
+//     <div className="app">
+//       <header className="app-header">
 //         <input ref={inputRef} />
 //         <p>{text}</p>
 //         <button onClick={handleFocus}>focus me</button>
@@ -26,8 +26,8 @@
 
 import { useMemo, useState, memo, useEffect } from 'react';
 import './App.css';
+import PersonList from './PersonList/PersonList';
 
-// Кастомний хук
 function useWindowWidth() {
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -40,14 +40,12 @@ function useWindowWidth() {
   return width;
 }
 
-// Компонент без ререндеру
 const SideComponent = memo(() => {
   console.log('SideComponent рендер');
   return <div>Я інший компонент</div>;
 });
 
 function App() {
-  // useMemo
   const [list, setList] = useState([1, 2, 3, 4, 5]);
   const sum = useMemo(() => {
     return list.reduce((acc, num) => acc + num, 0);
@@ -57,24 +55,23 @@ function App() {
     setList([...list, Math.floor(Math.random() * 10)]);
   };
 
-  // React.memo
   const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
   const removeItem = index => {
     setItems(items.filter((_, i) => i !== index));
   };
 
-  // useWindowWidth
   const width = useWindowWidth();
 
   return (
     <div className="App">
+      <PersonList />
       <header className="App-header">
-        <h2> useMemo</h2>
+        <h2>useMemo</h2>
         <p>Список: {list.join(', ')}</p>
         <p>Сума: {sum}</p>
         <button onClick={addNumber}>Додати число</button>
 
-        <h2> React.memo</h2>
+        <h2>React.memo</h2>
         <ul>
           {items.map((item, index) => (
             <li key={index}>
@@ -85,7 +82,7 @@ function App() {
         </ul>
         <SideComponent />
 
-        <h2> useWindowWidth</h2>
+        <h2>useWindowWidth</h2>
         <p>Ширина вікна: {width}px</p>
       </header>
     </div>
