@@ -64,7 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      <PersonList />
+      <PersonList /> {/* ✅ вже тут є PersonList */}
       <header className="App-header">
         <h2>useMemo</h2>
         <p>Список: {list.join(', ')}</p>
