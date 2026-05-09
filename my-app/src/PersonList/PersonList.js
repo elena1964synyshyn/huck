@@ -6,15 +6,6 @@ import classNames from 'classnames';
 import styles from './ProductList.module.css';
 import { Title, Button } from './styles';
 
-// const Title = styled.h1`
-//   color: green;
-// `;
-// const Button = styled.button`
-//   border-radius: 10px;
-//   color: ${props => props.primary || '#BF4F74'};
-//   background-color: ${props => (props.state ? '#fff' : 'blue')};
-// `;
-
 const PersonList = () => {
   const [bgColor, setBgColor] = useState('lightgray');
   const [state, setState] = useState(false);
@@ -36,7 +27,7 @@ const PersonList = () => {
       <Title>Person List</Title>
       {/* <Input inputColor="blue" placeholder="Blue input" />
       <Input placeholder="Default red input" /> */}
-      <Button primary={'red'} state={state} onClick={changeBackgroundColor}>
+      <Button primary={'white'} state={state} onClick={changeBackgroundColor}>
         Change Background Color
       </Button>
     </div>
