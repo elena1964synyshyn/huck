@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import InputData from '../InputData';
+import Checkbox from '../Checkbox';
 
 const ControlledForms = () => {
   const [value, setValue] = useState({
     name: '',
     email: '',
+    checkbox: false,
   });
 
   const handleSubmit = event => {
@@ -20,38 +23,48 @@ const ControlledForms = () => {
     setValue(prevState => ({ ...prevState, email }));
   };
 
+  const handleCheckboxChange = event => {
+    const checkbox = event.target.checked;
+    setValue(prevState => ({ ...prevState, checkbox }));
+  };
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          value={value.name}
-          onChange={handleNameChange}
-          type="text"
-          name="name"
-          id="name"
-        />
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: 'flex', flexDirection: 'column' }}
+      >
+        <div style={{ padding: '20px' }}>
+          <label style={{ marginRight: '10px' }} htmlFor="name">
+            Name:
+          </label>
+          <input
+            value={value.name}
+            onChange={handleNameChange}
+            type="text"
+            name="name"
+            id="name"
+          />
+        </div>
 
-        <label htmlFor="email">Email:</label>
-        <input
-          value={value.email}
-          onChange={handleEmailChange}
-          type="text"
-          name="email"
-          id="email"
-        />
-
-        <input type="submit" value="Submit Form" />
+        <div style={{ padding: '20px' }}>
+          <label style={{ marginRight: '10px' }} htmlFor="email">
+            Email:
+          </label>
+          <input
+            value={value.email}
+            onChange={handleEmailChange}
+            type="text"
+            name="email"
+            id="email"
+          />
+        </div>
+        <Checkbox value={value} handleCheckboxChange={handleCheckboxChange} />
+        <div style={{ padding: '20px' }}>
+          <input style={{ width: '200px' }} type="submit" value="Submit Form" />
+        </div>
       </form>
-
-      <div>
-        <p>
-          firstName: <strong>{value.name}</strong>
-        </p>
-        <p>
-          email: <strong>{value.email}</strong>
-        </p>
-      </div>
+      <InputData value={value} />
     </>
   );
 };
