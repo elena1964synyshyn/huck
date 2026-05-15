@@ -1,4 +1,3 @@
-import React from 'react';
 const InputData = ({ value }) => {
   return (
     <div style={{ padding: '20px' }}>
@@ -10,6 +9,9 @@ const InputData = ({ value }) => {
       </p>
       <p>
         checkbox: <strong>{value.checkbox.toString()}</strong>
+      </p>
+      <p>
+        Select: <strong>{value.select}</strong>
       </p>
     </div>
   );
