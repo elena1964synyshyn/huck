@@ -1,3 +1,4 @@
+import { debounce } from 'lodash';
 import { useState } from 'react';
 import InputData from '../InputData';
 import Checkbox from '../Checkbox';
@@ -14,10 +15,11 @@ const ControlledForms = () => {
     event.preventDefault();
   };
 
-  const handleNameChange = event => {
+  const handleNameChange = debounce(event => {
     const name = event.target.value;
+    console.log(name);
     setValue(prevState => ({ ...prevState, name }));
-  };
+  }, 1000);
 
   const handleEmailChange = event => {
     const email = event.target.value;

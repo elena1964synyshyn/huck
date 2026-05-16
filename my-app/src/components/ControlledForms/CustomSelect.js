@@ -1,9 +1,9 @@
 const CustomSelect = ({ value, setValue }) => {
   const selectOptions = [
-    { id: 1, value: 'option1' },
-    { id: 2, value: 'option2' },
-    { id: 3, value: 'option3' },
-    { id: 4, value: 'option4' },
+    { id: 1, value: 'option 1' },
+    { id: 2, value: 'option 2' },
+    { id: 3, value: 'option 3' },
+    { id: 4, value: 'option 4' },
   ];
 
   const handleSelectChange = event => {
