@@ -97,7 +97,6 @@ import ControlledForms from './components/ControlledForms/ControlledForms';
 function App() {
   return (
     <div className="App">
-      {/* <UncontrolledForms /> */}
       <ControlledForms />
     </div>
   );
